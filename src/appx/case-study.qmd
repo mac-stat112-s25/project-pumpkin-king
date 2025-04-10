@@ -3,3 +3,15 @@ title: "Case Study"
 ---
 
 Your case study will go here.
+
+Manhattan Core Replacement
+Uber added 3.82 million pickups in Manhattan (south of 110th St/96th St) between 2014–2015, while taxis lost 3.83 million. Net change: -12,442 rides, showing Uber directly replaced taxis.
+
+Outer Borough Growth
+In Brooklyn, Queens, and the Bronx, Uber and taxis grew. Example: Uber added 1.1M pickups in Brooklyn, while taxis gained 299k. Suggests Uber filled gaps in subway-deficient areas (e.g., Dyker Heights).
+
+Evening Congestion
+Uber added 682 more pickups/hour in Manhattan’s core during 4–5 PM (2015 vs. 2014), overlapping with taxi shift changes. Data lacks dropoff locations, so traffic impact is debated.
+
+Market Share Shifts
+Uber’s citywide pickup share rose from 4% (2014) to 15% (2015). Taxis retained dominance north of 59th St (25% vs. Uber’s 15%).
