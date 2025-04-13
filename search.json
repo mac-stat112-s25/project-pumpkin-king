@@ -1,0 +1,34 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "project title",
+    "section": "",
+    "text": "Your report will go here.\n\n# this is a test code",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Report</span>"
+    ]
+  },
+  {
+    "objectID": "src/appx/proposal.html",
+    "href": "src/appx/proposal.html",
+    "title": "Appendix A — Proposal",
+    "section": "",
+    "text": "Your proposal will go here.\nPumpkin King\nAlena Han, Leah Zhang\nWe want to look at a dataset from The Great Pumpkin Commonwealth’s (GPC) competition held in 2021, which includes numerous variables like id, weight, and ranking. We want to explore the average weight of pumpkins in this competition and the top ten weight of pumpkins. In addition, we will also find out whether the weight of pumpkins varied with regions/ countries.\nReasons: First, the theme of this dataset is interesting and attractive. How big is the biggest pumpkin? More importantly, there are enough observations but not too many, so we can later deal with the dataset (clean and visualize) easily. These observations and data also supports us to do a range of visualizations, eg, spatial map, bar plot, histogram,etc.\n\nlibrary(tibble)\n\n# 第一张表格\nplan1 &lt;- tibble(\n  Tasks = c(\"Case study\", \"Identify variables of interest/ Develop research question(s)\", \"Outline\", \"Clean data\",\"Data wrangling – compute metrics\", \"Visualization – top 10 bar plot\", \"Visualization – region map\", \"Final outline/report\"),\n  Name = c(\"Leah and Alena\", \"Both\", \"Both\", \"Alena\",\"Leah\", \"Alena\", \"Leah\", \"Both\"),\n  Description = c(\"Learn NYC Uber case and make a conclusion\",\n                  \"List and understand variables from the dataset and decide what to explore\",\n                  \"Write up things we will do and the project structure\",\n                  \"Combine tables and select the useful column. Unify\",\n                  \"Wrangle the factor (characters…), format, etc.\",\n                  \"Visualize the heaviest pumpkins\",\n                  \"Create a spatial map of weights\",\n                  \"Write up and prepare final presentation\"),\n  Time = c(\"Week 1\", \"Week 1\", \"Week 1\", \"Week 2\",\"Week 2\", \"Week 2\", \"Week 2\", \"Week 3\")\n)\n\nplan1\n\n# A tibble: 8 × 4\n  Tasks                                                  Name  Description Time \n  &lt;chr&gt;                                                  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;\n1 Case study                                             Leah… Learn NYC … Week…\n2 Identify variables of interest/ Develop research ques… Both  List and u… Week…\n3 Outline                                                Both  Write up t… Week…\n4 Clean data                                             Alena Combine ta… Week…\n5 Data wrangling – compute metrics                       Leah  Wrangle th… Week…\n6 Visualization – top 10 bar plot                        Alena Visualize … Week…\n7 Visualization – region map                             Leah  Create a s… Week…\n8 Final outline/report                                   Both  Write up a… Week…",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Proposal</span>"
+    ]
+  },
+  {
+    "objectID": "src/appx/case-study.html",
+    "href": "src/appx/case-study.html",
+    "title": "Appendix B — Case Study",
+    "section": "",
+    "text": "Your case study will go here.\nManhattan Core Replacement Uber added 3.82 million pickups in Manhattan (south of 110th St/96th St) between 2014–2015, while taxis lost 3.83 million. Net change: -12,442 rides, showing Uber directly replaced taxis.\nOuter Borough Growth In Brooklyn, Queens, and the Bronx, Uber and taxis grew. Example: Uber added 1.1M pickups in Brooklyn, while taxis gained 299k. Suggests Uber filled gaps in subway-deficient areas (e.g., Dyker Heights).\nEvening Congestion Uber added 682 more pickups/hour in Manhattan’s core during 4–5 PM (2015 vs. 2014), overlapping with taxi shift changes. Data lacks dropoff locations, so traffic impact is debated.\nMarket Share Shifts Uber’s citywide pickup share rose from 4% (2014) to 15% (2015). Taxis retained dominance north of 59th St (25% vs. Uber’s 15%).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Case Study</span>"
+    ]
+  }
+]
