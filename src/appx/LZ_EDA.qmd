@@ -1,5 +1,5 @@
 ---
-title: "LZ_EDA"
+title: "eda"
 ---
 
 ```{r}
@@ -36,4 +36,7 @@ plot_missing(pumpkins)
 
 ```{r}
 library(arsenal)
-pumpkin_freq <- freqlist(~ v
+pumpkin_freq <- freqlist(~ variety + state_prov, data = pumpkins)
+summary(pumpkin_freq)
+```
+
