@@ -3,3 +3,67 @@ title: "Proposal"
 ---
 
 Your proposal will go here.
+
+Pumpkin King
+
+Alena Han, Leah Zhang
+
+We want to look at a dataset from The Great Pumpkin Commonwealth’s (GPC) competition held in 2021, which includes numerous variables like id, weight, and ranking. 
+We want to explore the average weight of pumpkins in this competition and the top ten weight of pumpkins. In addition, we will also find out whether the weight of pumpkins varied with regions/ countries. 
+
+
+Reasons: First, the theme of this dataset is interesting and attractive. How big is the biggest pumpkin? More importantly, there are enough observations but not too many, so we can later deal with the dataset (clean and visualize) easily. These observations and data also supports us to do a range of visualizations, eg, spatial map, bar plot, histogram,etc.
+
+
+
+```{r}
+library(tibble)
+
+# 第一张表格
+plan1 <- tibble(
+  Tasks = c("Case study", "Identify variables of interest/ Develop research question(s)", "Outline", "Clean data","Data wrangling – compute metrics", "Visualization – top 10 bar plot", "Visualization – region map", "Final outline/report"),
+  Name = c("Leah and Alena", "Both", "Both", "Alena","Leah", "Alena", "Leah", "Both"),
+  Description = c("Learn NYC Uber case and make a conclusion",
+                  "List and understand variables from the dataset and decide what to explore",
+                  "Write up things we will do and the project structure",
+                  "Combine tables and select the useful column. Unify",
+                  "Wrangle the factor (characters…), format, etc.",
+                  "Visualize the heaviest pumpkins",
+                  "Create a spatial map of weights",
+                  "Write up and prepare final presentation"),
+  Time = c("Week 1", "Week 1", "Week 1", "Week 2","Week 2", "Week 2", "Week 2", "Week 3")
+)
+
+plan1
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
