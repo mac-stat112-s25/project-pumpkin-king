@@ -3,3 +3,51 @@ title: "Proposal"
 ---
 
 Your proposal will go here.
+
+Pumpkin King
+
+Alena Han, Leah Zhang
+
+We want to look at a dataset from The Great Pumpkin Commonwealth’s (GPC) competition held in 2021, which includes numerous variables like id, weight, and ranking. 
+We want to explore the average weight of pumpkins in this competition and the top ten weight of pumpkins. In addition, we will also find out whether the weight of pumpkins varied with regions/ countries. 
+
+
+Reasons: First, the theme of this dataset is interesting and attractive. How big is the biggest pumpkin? More importantly, there are enough observations but not too many, so we can later deal with the dataset (clean and visualize) easily. These observations and data also supports us to do a range of visualizations, eg, spatial map, bar plot, histogram,etc.
+
+```{r}
+library(kableExtra)
+
+# our data
+df <- data.frame(
+  col1 = c("Task", "Case study", "Identify variables of interest/ Develop research question(s)", 
+           "Outline", "Clean data", "Data wrangling – compute metrics", 
+           "Visualization – top 10 bar plot", "Visualization – region map", "Final outline/report"),
+  col2 = c("Name", "Leah and Alena", "Both", "Both", "Alena", "Leah", "Alena", "Leah", "Both"),
+  col3 = c("Description", "Learn NYC Uber case and make a conclusion", 
+           "List and understand variables from the dataset and decide what to explore", 
+           "Write up things we will do and the project structure", 
+           "Combine tables and select the useful column. Unify country/region names", 
+           "Wrangle the factor (characters…), format, etc.", 
+           "Visualize the heaviest pumpkins", 
+           "Create a spatial map of weights", 
+           "Write up and prepare final presentation"),
+  col4 = c("Time", "Week1", "Week1", "Week1", "Week2", "Week2", "Week2", "Week2", "Week3"),
+  stringsAsFactors = FALSE
+)
+
+# make table
+df %>%
+  kbl(
+    col.names = c("Task", "Name", "Description", "Time"),
+    align = "lccc",
+    caption = "Project Timeline"
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = F,
+    position = "center"
+  ) %>%
+  column_spec(1, bold = TRUE)
+
+```
+
