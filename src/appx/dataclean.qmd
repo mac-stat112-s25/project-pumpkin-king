@@ -22,4 +22,16 @@ pumpkins <- tuesdata$pumpkins
 pumpkins <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-19/pumpkins.csv')
 
 ```
+```{r}
+library(dplyr)
+library(stringr)
+library(ggplot2)
+```
 
+
+#Research Question: What factors influence the weight of competition pumpkins over time and across regions?
+
+#relationship between country and weight (map)
+#relationship between average weight of pumpkin and time
+#relationship between seed_mother and weight
+#relationship between father and weight 
