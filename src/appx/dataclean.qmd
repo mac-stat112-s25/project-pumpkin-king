@@ -32,6 +32,48 @@ library(ggplot2)
 #Research Question: What factors influence the weight of competition pumpkins over time and across regions?
 
 #relationship between country and weight (map)
+# finish: distribution of weight
 #relationship between average weight of pumpkin and time
 #relationship between seed_mother and weight
 #relationship between father and weight 
+```{r}
+glimpse(pumpkins)  # 或者用 str(pumpkins)
+
+```
+
+
+```{r}
+library(dplyr)
+
+pumpkin_clean <- pumpkins %>%
+  mutate(
+    weight_lbs = as.numeric(weight_lbs),
+    seed_mother = as.factor(seed_mother),
+    pollinator_father = as.factor(pollinator_father)
+  ) %>%
+  filter(!is.na(weight_lbs), !is.na(seed_mother), !is.na(pollinator_father))
+
+```
+
+```{r}
+library(ggplot2)
+
+pumpkin_clean %>%
+  filter(seed_mother %in% names(sort(table(seed_mother), decreasing = TRUE)[1:10])) %>%
+  ggplot(aes(x = seed_mother, y = weight_lbs)) +
+  geom_boxplot() +
+  labs(title = "Pumpkin Weight by Top 10 Seed Mothers", x = "Seed Mother", y = "Weight (lbs)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r}
+pumpkin_clean %>%
+  filter(pollinator_father %in% names(sort(table(pollinator_father), decreasing = TRUE)[1:10])) %>%
+  ggplot(aes(x = pollinator_father, y = weight_lbs)) +
+  geom_boxplot() +
+  labs(title = "Pumpkin Weight by Top 10 Pollinator Fathers", x = "Pollinator Father", y = "Weight (lbs)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
