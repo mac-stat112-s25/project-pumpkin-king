@@ -1,0 +1,52 @@
+---
+title: "Giant Pumpkin"
+---
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(stringr)
+```
+
+```{r}
+# Get the Data
+
+# Read in with tidytuesdayR package 
+# Install from CRAN via: install.packages("tidytuesdayR")
+# This loads the readme and all the datasets for the week of interest
+
+# Either ISO-8601 date or year/week works!
+
+tuesdata <- tidytuesdayR::tt_load('2021-10-19')
+tuesdata <- tidytuesdayR::tt_load(2021, week = 43)
+
+pumpkins <- tuesdata$pumpkins
+
+# Or read in the data manually
+
+pumpkins <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-19/pumpkins.csv')
+```
+
+```{r}
+str(pumpkins)
+```
+
+```{r}
+#Overall Weight Distribution
+pumpkins$weight_lbs <- as.numeric(pumpkins$weight_lbs)
+ggplot(pumpkins, aes(x = weight_lbs)) +
+  geom_histogram(fill = "orange", color = "black", bins = 20) +
+  labs(
+    title = "Distribution of Pumpkin Weights",
+    x = "Weight (lbs)",
+    y = "Count",
+    caption = "Data Source: The Great Pumpkin Commonwealth (GPC) in 2021 from BigPumpkins.com by Leah Zhang"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+#Weight Distribution by Place
+
+
+
