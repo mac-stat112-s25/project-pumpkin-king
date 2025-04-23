@@ -47,6 +47,34 @@ ggplot(pumpkins, aes(x = weight_lbs)) +
 
 ```{r}
 #Weight Distribution by Place
+pumpl <- df %>%
+  mutate(
+    weight_lbs   = as.numeric(weight_lbs),
+    pct_chart    = as.numeric(pct_chart),
+    place_clean  = parse_number(place)             # safer conversion
+  ) %>%
+  # drop rows where place is missing or zero after parsing
+  filter(!is.na(place_clean) & place_clean > 0) %>%
+  mutate(
+    place_group = case_when(
+      place_clean <= 5  ~ "1–5",
+      place_clean <= 10 ~ "6–10",
+      TRUE              ~ ">10"
+    ),
+    pct_quartile = ntile(pct_chart, 4),
+    pct_quartile = factor(pct_quartile,
+                          levels = 1:4,
+                          labels = c("Q1 (lowest)", "Q2", "Q3", "Q4 (highest)"))
+  )
 
+# Boxplot by place group
+ggplot(df2, aes(x = place_group, y = weight_lbs)) +
+  geom_boxplot(outlier.size = 0.5) +
+  labs(
+    x     = "Place Group",
+    y     = "Pumpkin Weight (lbs)",
+    title = "Weight Distribution by Place Group"
+  ) +
+  theme_minimal(base_size = 14)
 
 
