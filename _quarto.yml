@@ -1,6 +1,5 @@
 # options for Quarto book
 # https://quarto.org/docs/reference/projects/books.html
-# 
 # Options for html
 # https://quarto.org/docs/reference/projects/websites.html#section
 
@@ -11,9 +10,11 @@ project:
 
 
 book:
-  title: "project title"
-  author: ["student 1 first and last name", "student 2 first and last name", "student 3 first and last name"]
-  date: today  # use today to update date published based on last time project was edited
+  title: "Pumpkin King"
+  author: 
+  - "Alena Han"
+  - "Leah Zhang"
+  date: "April 23, 2025"
   date-format: full
   # favicon: images/logo.png
   reader-mode: true
@@ -41,10 +42,13 @@ book:
     - part: "Effective Teamwork"
       chapters:
        - src/et/leah-z.qmd
+       - src/et/alena-h.qmd
     
     - part: "EDA"
       chapters:
        - src/eda/leah-z.qmd
+       - src/eda/alena-h.qmd
+
 
   appendices:
   - src/appx/proposal.qmd
