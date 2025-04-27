@@ -11,11 +11,11 @@ Your report will go here.
 # this is a test code
 ```
 
-How Pumpkin Growing Power Differs Across the U.S.
+How Pumpkin Growing Power Differs Across the World.
 
-Every fall, growers across North America compete to grow the heaviest pumpkins. But not all pumpkins, or all regions, are created equal. Our analysis finds that pumpkin weight varies significantly based on genetics, location, and even yearly conditions.
+Every fall, growers all over the world compete to grow the heaviest pumpkins. But not all pumpkins, or all regions, are created equal. Our analysis finds that pumpkin weight varies significantly based on genetics, location, and even yearly conditions.
 
-We analyzed competition data from the Great Pumpkin Commonwealth (GPC) from 2013 to 2020. While the competition is global, our focus here is on the United States, where the majority of entries are recorded. Using over 6,000 entries, we explored how seed genetics and regional growing conditions impact pumpkin weight.
+We analyzed competition data from the Great Pumpkin Commonwealth (GPC) from 2013 to 2020. We both focus on the pumpkin growth the global scale and specifically about the the United States, where the majority of entries are recorded. Using over 6,000 entries, we explored how seed genetics and regional growing conditions impact pumpkin weight.
 
 Genetic Factors: Seed Mothers and Pollinator Fathers
 
