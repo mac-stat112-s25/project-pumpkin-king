@@ -45,7 +45,7 @@ pumpkin_clean %>%
   filter(seed_mother %in% names(sort(table(seed_mother), decreasing = TRUE)[1:10])) %>%
   ggplot(aes(x = seed_mother, y = weight_lbs)) +
   geom_boxplot(fill = "#FFA500", color = "#8B4513") +
-  labs(title = "Pumpkin Weight by Top 10 Seed Mothers", x = "Seed Mother", y = "Weight (lbs)",caption = "Data source: GPC Competition Data (2013-2020)") +
+  labs(title = "Pumpkin Weight by Top 10 Seed Mothers", x = "Seed Mother", y = "Weight (lbs)",caption = "Data source: GPC Competition Data (2013-2020) by Alena Han") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
@@ -59,10 +59,10 @@ The pollinator father's side tells a similar story.
 library(ggplot2)
 
 pumpkin_clean %>%
-  filter(pollinator_father %in% names(sort(table(pollinator_father), decreasing = TRUE)[1:10])) %>%
+  filter(pollinator_father %n% names(sort(table(pollinator_father), decreasing = TRUE)[1:10])) %>%
   ggplot(aes(x = pollinator_father, y = weight_lbs)) +
   geom_boxplot(fill = "#FFA500", color = "#8B4513") +
-  labs(title = "Pumpkin Weight by Top 10 pollinator_father", x = "pollinator_father", y = "Weight (lbs)", caption = "Data source: GPC Competition Data (2013-2020)") +
+  labs(title = "Pumpkin Weight by Top 10 pollinator_father", x = "pollinator_father", y = "Weight (lbs)", caption = "Data source: GPC Competition Data (2013-2020) by Alena Han") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
@@ -100,10 +100,11 @@ ggplot(pumpkins_avg, aes(x = year, y = avg_weight)) +
   geom_point(color = "black", size = 2) +      # 
   facet_wrap(~ state_prov) +
   labs(
-    title = "Average Pumpkin Weight Over Time by State (Top 6 States)",
+    title = "Average Pumpkin Weight Over Time by State 
+    (Top 6 States)",
     x = "Year",
     y = "Average Weight (lbs)",
-    caption = "Data source: GPC Competition Data (2013-2020)"
+    caption = "Data source: GPC Competition Data (2013-2020) by Alena Han"
   ) +
   theme_minimal() +
   theme(
@@ -147,7 +148,7 @@ ggplot(us_map_data, aes(x = long, y = lat, group = group, fill = avg_weight)) +
   geom_polygon(color = "white") +
   coord_fixed(1.3) +
   scale_fill_gradient(
-    low = "#FFF5E1",   # 更接近白色的浅米色
+    low = "#FFF5E1",  
     high = "#FF4500",  # 深橙红色（接近南瓜皮深色）
     na.value = "grey90",
     name = "Avg Weight (lbs)"
