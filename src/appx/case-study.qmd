@@ -2,16 +2,27 @@
 title: "Case Study"
 ---
 
-Your case study will go here.
+Link to the Case Study: 
+https://fivethirtyeight.com/features/uber-is-taking-millions-of-manhattan-rides-away-from-taxis/
 
-Manhattan Core Replacement
-Uber added 3.82 million pickups in Manhattan (south of 110th St/96th St) between 2014–2015, while taxis lost 3.83 million. Net change: -12,442 rides, showing Uber directly replaced taxis.
 
-Outer Borough Growth
-In Brooklyn, Queens, and the Bronx, Uber and taxis grew. Example: Uber added 1.1M pickups in Brooklyn, while taxis gained 299k. Suggests Uber filled gaps in subway-deficient areas (e.g., Dyker Heights).
+1. Intrduction
+The piece begins with a concise, attention-grabbing statement: “Newly released city data show that Uber has replaced millions of Manhattan taxi pickups.” This one-sentence lede immediately reframes the broader congestion debate around a concrete metric—pickup counts—and sets the stage for inquiry. Within the same opening paragraph, the authors pose their central question: “But does this uncapped growth in Uber pickups actually worsen New York City traffic?” 
 
-Evening Congestion
-Uber added 682 more pickups/hour in Manhattan’s core during 4–5 PM (2015 vs. 2014), overlapping with taxi shift changes. Data lacks dropoff locations, so traffic impact is debated.
+ By front-loading both result and query, the article hooks readers and signals exactly what metric (pickups) and policy concern (congestion) will guide the analysis.
+  
+2. Background
+After the hook, the authors situate their analysis in the real-world stakes of New York politics: Mayor Bill de Blasio’s high-profile attempt to cap for-hire vehicles—including Uber—had just failed, while taxi medallions remained capped under longstanding regulation. This contrast of capped taxis vs. uncapped ride-hail fleets underscores why the pickup data matter. A brief aside acknowledges labor and regulatory controversies surrounding Uber, but returns focus to the administration’s chief worry—gridlock. This grounding in policy ensures readers understand both the “why now?” context and the real-world implications.
 
-Market Share Shifts
-Uber’s citywide pickup share rose from 4% (2014) to 15% (2015). Taxis retained dominance north of 59th St (25% vs. Uber’s 15%).
+3. Data Analysis
+Transparency is paramount in the third section, which describes the Freedom of Information Law (FOIL) request through which TLC provided Uber pickup data for January–June 2015—complementing April–September 2014 data obtained earlier.The authors explain how they geocoded 2014 latitude/longitude points into standardized taxi-zone polygons and matched the same months across years (April–June) to ensure apples-to-apples comparisons.By walking readers through FOIL, geocoding, and temporal alignment, the piece demystifies its approach and builds trust in its findings.
+
+4. Interpretation & Stakeholder Voices
+Having laid out the data arc, the article pivots to interpretation. It notes Uber’s share of Manhattan pickups rocketing from roughly 4 percent to 13 percent year-over-year—contextualizing growth magnitude. 
+GitHub
+ Quotes from a de Blasio spokesperson remind readers that pickups alone don’t capture trip length or empty-cruising impacts, while an Uber representative downplays congestion worries entirely. 
+GitHub
+ These voices add human perspective, prevent one-sided claims, and underscore the article’s balanced stance. 
+ 
+5. Limitations & Caveats
+In a dedicated caveats section, the authors clarify that pickup counts omit drop-off locations, trip distances, idle time, and Lyft or other competitor data. They openly acknowledge potential reporting lags in TLC data and invite readers to consider these gaps. By explicitly enumerating what their metric does—and does not—measure, the article preempts misinterpretation and emphasizes nuance over sensationalism.

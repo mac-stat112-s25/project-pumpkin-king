@@ -1,8 +1,13 @@
 ---
 title: "Report"
-execute: 
-  echo: false      # change to true to show the code
-code-fold: true  # change to true to fold the code chunks
+execute:
+  echo: true
+  warning: false
+  error: false
+  
+format:
+  html:
+    code-fold: true
 ---
 
 Your report will go here.
@@ -146,7 +151,11 @@ ggplot(pumpkins1, aes(x = weight_lbs)) +
     y = "Count",
     caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(size = 6), 
+    axis.text.y = element_text(size = 6)
+  )
 ```
 Interestingly, it seems the United States participated the most in the competition has it has the most counts of pupmkins in the dataset. Other countries like Canda and Germany also provided a great number of pumpkins. However, for the msot countries in the dataset, they have really minimal number of pumpkins that look insignificant and hard to interpret the trend. 
 

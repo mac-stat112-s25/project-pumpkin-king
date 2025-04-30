@@ -79,7 +79,12 @@ ggplot(pumpkins1, aes(x = weight_lbs)) +
     y = "Count",
     caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(size = 6), 
+    axis.text.y = element_text(size = 6)
+  )
+
 ```
 
 ```{r}
