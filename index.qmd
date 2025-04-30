@@ -59,7 +59,7 @@ The pollinator father's side tells a similar story.
 library(ggplot2)
 
 pumpkin_clean %>%
-  filter(pollinator_father %n% names(sort(table(pollinator_father), decreasing = TRUE)[1:10])) %>%
+  filter(pollinator_father %in% names(sort(table(pollinator_father), decreasing = TRUE)[1:10])) %>%
   ggplot(aes(x = pollinator_father, y = weight_lbs)) +
   geom_boxplot(fill = "#FFA500", color = "#8B4513") +
   labs(title = "Pumpkin Weight by Top 10 pollinator_father", x = "pollinator_father", y = "Weight (lbs)", caption = "Data source: GPC Competition Data (2013-2020) by Alena Han") +
@@ -96,12 +96,12 @@ pumpkins_avg <- pumpkins %>%
 
 
 ggplot(pumpkins_avg, aes(x = year, y = avg_weight)) +
-  geom_line(color = "#FFA500", size = 1.2) +  # 
-  geom_point(color = "black", size = 2) +      # 
+  geom_line(color = "#FFA500", size = 1.2) +
+  geom_point(color = "black", size = 2) +
   facet_wrap(~ state_prov) +
+  scale_x_continuous(breaks = seq(2013, 2020, 2)) +  
   labs(
-    title = "Average Pumpkin Weight Over Time by State 
-    (Top 6 States)",
+    title = "Average Pumpkin Weight Over Time by State (Top 6 States)",
     x = "Year",
     y = "Average Weight (lbs)",
     caption = "Data source: GPC Competition Data (2013-2020) by Alena Han"
@@ -110,8 +110,10 @@ ggplot(pumpkins_avg, aes(x = year, y = avg_weight)) +
   theme(
     strip.text = element_text(size = 10),
     plot.title = element_text(hjust = 0.5, face = "bold"),
-    plot.caption = element_text(hjust = 0.5, size = 8)
+    plot.caption = element_text(hjust = 0.5, size = 8),
+    axis.text.x = element_text(angle = 0, size = 9)  
   )
+
 
 ```
 
