@@ -10,6 +10,9 @@ format:
     code-fold: true
 ---
 
+
+
+
 How Pumpkin Growing Power Differs Across the World.
 
 Every fall, growers all over the world compete to grow the heaviest pumpkins. But not all pumpkins, or all regions, are created equal. Our analysis finds that pumpkin weight varies significantly based on genetics, location, and even yearly conditions.
@@ -19,6 +22,9 @@ We analyzed competition data from the Great Pumpkin Commonwealth (GPC) from 2013
 Genetic Factors: Seed Mothers and Pollinator Fathers
 
 Genetics plays a major role in how heavy a pumpkin can grow. We first looked at the "seed mother" lineage—the maternal side of the pumpkin family.
+
+
+
 
 ```{r}
 tuesdata <- tidytuesdayR::tt_load('2021-10-19')
@@ -50,9 +56,15 @@ pumpkin_clean %>%
 ```
 
 
+
+
+
 The data shows that pumpkins from seed mothers like "2008 Neptune" and "2145 McMullen" consistently produce heavier entries, while others like "81 Wolf" have lower median weights. This highlights that superior seed lines can offer growers a significant advantage.
 
 The pollinator father's side tells a similar story.
+
+
+
 
 ```{r}
 library(ggplot2)
@@ -67,11 +79,17 @@ pumpkin_clean %>%
 ```
 
 
+
+
+
 Notably, pumpkins pollinated by "2009 Wallace" lines stood out with much heavier median weights, compared to more generic "self" or "open" pollination sources. The importance of strategic breeding is clear: winning pumpkins often come from carefully selected parentage.
 
 Regional Trends: How Pumpkin Weight Changes Over Time
 
 Location matters too. Environmental factors such as soil quality, temperature, and growing culture differ across regions. We zoomed into the six U.S. states and provinces with the most competition entries: California, Michigan, Ohio, Ontario, Wisconsin, and a general "Other" category.
+
+
+
 
 ```{r}
 library(tidyverse)
@@ -114,9 +132,15 @@ ggplot(pumpkins_avg, aes(x = year, y = avg_weight)) +
 ```
 
 
+
+
+
 From 2013 to 2020, no state showed dramatic year-over-year growth, but there were fluctuations. California showed relatively higher weight spikes around 2017, while Ontario and Wisconsin had steadier, flatter trends. Michigan and Ohio displayed more variability, hinting at changing growing conditions or participant turnover.
 
 To give a better overall idea of the world-wide pumpkin weight from 2013 to 2020, we look at the distribution of pumpkin weights across the world.
+
+
+
 ```{r}
 #Overall Weight Distribution
 pumpkins$weight_lbs <- as.numeric(pumpkins$weight_lbs)
@@ -130,9 +154,15 @@ ggplot(pumpkins, aes(x = weight_lbs)) +
   ) +
   theme_minimal()
 ```
+
+
+
 From this visualization, there's a right-skewed tendency that there are more pumpkins with smaller weights and less pumpkins with bigger weights. This is something we expect to see because it is harder to grow heavy pumpkins. Also we can conclude that the range of the pumpkin weights world-wide is about 1000lbs, which is a quite wide range.
 
 To further look at the weight distribution by countries, we made a set of histograms. 
+
+
+
 ```{r}
 #Weight Distribution by Country
 pumpkins1 <- pumpkins %>% filter(!is.na(weight_lbs))
@@ -151,9 +181,15 @@ ggplot(pumpkins1, aes(x = weight_lbs)) +
     axis.text.y = element_text(size = 6)
   )
 ```
+
+
+
 Interestingly, it seems the United States participated the most in the competition has it has the most counts of pupmkins in the dataset. Other countries like Canda and Germany also provided a great number of pumpkins. However, for the msot countries in the dataset, they have really minimal number of pumpkins that look insignificant and hard to interpret the trend. 
 
 Then, we decide to take a closer look at the dataset by coding for the statistics for it.
+
+
+
 ```{r}
 pumpkins_clean <- pumpkins %>%
   mutate(weight_lbs = as.numeric(weight_lbs))   # This turns invalid text into NA automatically
@@ -175,12 +211,18 @@ pumpkin_weight_summary <- pumpkins_clean %>%
 
 print(pumpkin_weight_summary)
 ```
+
+
+
 Some findings are surprising, that though the US has the most observations (17070), it doesn't has the most mean nor median. Instead, Belgium is the country in the GPC with highest mean and median weight of pumpkins. Also, the heavist pumpkin is from Belgium with a weight of 999.8lbs. However, it seems that a lot of the heaviest pumpkin in each country has similar weight around 990lbs. This may be an indication that this is the limit for the pumpkin to grow with the current breeding and fertilizing skills. Additionally, Canada has the greatest standard deviation value, which indicates that the pumpkin weights are dispersed away from the mean. 
 
 
 Geographic Distribution: Where the Heaviest Pumpkins Are Grown
 
 To visualize the regional differences more clearly, we mapped the average pumpkin weight across U.S. states.
+
+
+
 ```{r}
 library(tidyverse)
 library(maps)
@@ -236,6 +278,9 @@ ggplot(us_map_data, aes(x = long, y = lat, group = group, fill = avg_weight)) +
 
 
 
+
+
+
 The Midwest, especially states like Ohio and Michigan, consistently produced heavier pumpkins compared to southern or coastal states. This suggests that cooler climates, specific soil types, or stronger pumpkin-growing traditions could favor giant pumpkin cultivation.
 
 Conclusion: Winning Takes Both Genes and Geography
@@ -245,4 +290,5 @@ Our analysis shows that growing a giant pumpkin isn't just a matter of luck. Gen
 In short, the best pumpkin growers combine the right seeds with the right place. As competition intensifies, understanding and optimizing both factors will be key for those hoping to set future records.
 
 Data source: TidyTuesday / GPC
+
 
