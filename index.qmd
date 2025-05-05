@@ -249,3 +249,5 @@ In short, the best pumpkin growers combine the right seeds with the right place.
 
 Data source: TidyTuesday / GPC
 
+Below is the video of our project
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YYoKZSRpj-s?si=FoAPp8tfbGZ_AiMe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
