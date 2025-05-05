@@ -265,22 +265,21 @@ cookieconsent.run({
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># 第一张表格</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>plan1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">Tasks =</span> <span class="fu">c</span>(<span class="st">"Case study"</span>, <span class="st">"Identify variables of interest/ Develop research question(s)"</span>, <span class="st">"Outline"</span>, <span class="st">"Clean data"</span>,<span class="st">"Data wrangling – compute metrics"</span>, <span class="st">"Visualization – top 10 bar plot"</span>, <span class="st">"Visualization – region map"</span>, <span class="st">"Final outline/report"</span>),</span>
-<span id="cb1-6"><a href="#cb1-6"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">"Leah and Alena"</span>, <span class="st">"Both"</span>, <span class="st">"Both"</span>, <span class="st">"Alena"</span>,<span class="st">"Leah"</span>, <span class="st">"Alena"</span>, <span class="st">"Leah"</span>, <span class="st">"Both"</span>),</span>
-<span id="cb1-7"><a href="#cb1-7"></a>  <span class="at">Description =</span> <span class="fu">c</span>(<span class="st">"Learn NYC Uber case and make a conclusion"</span>,</span>
-<span id="cb1-8"><a href="#cb1-8"></a>                  <span class="st">"List and understand variables from the dataset and decide what to explore"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9"></a>                  <span class="st">"Write up things we will do and the project structure"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10"></a>                  <span class="st">"Combine tables and select the useful column. Unify"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11"></a>                  <span class="st">"Wrangle the factor (characters…), format, etc."</span>,</span>
-<span id="cb1-12"><a href="#cb1-12"></a>                  <span class="st">"Visualize the heaviest pumpkins"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13"></a>                  <span class="st">"Create a spatial map of weights"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14"></a>                  <span class="st">"Write up and prepare final presentation"</span>),</span>
-<span id="cb1-15"><a href="#cb1-15"></a>  <span class="at">Time =</span> <span class="fu">c</span>(<span class="st">"Week 1"</span>, <span class="st">"Week 1"</span>, <span class="st">"Week 1"</span>, <span class="st">"Week 2"</span>,<span class="st">"Week 2"</span>, <span class="st">"Week 2"</span>, <span class="st">"Week 2"</span>, <span class="st">"Week 3"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16"></a>)</span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a>plan1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a>plan1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="at">Tasks =</span> <span class="fu">c</span>(<span class="st">"Case study"</span>, <span class="st">"Identify variables of interest/ Develop research question(s)"</span>, <span class="st">"Outline"</span>, <span class="st">"Clean data"</span>,<span class="st">"Data wrangling – compute metrics"</span>, <span class="st">"Visualization – top 10 bar plot"</span>, <span class="st">"Visualization – region map"</span>, <span class="st">"Final outline/report"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">"Leah and Alena"</span>, <span class="st">"Both"</span>, <span class="st">"Both"</span>, <span class="st">"Alena"</span>,<span class="st">"Leah"</span>, <span class="st">"Alena"</span>, <span class="st">"Leah"</span>, <span class="st">"Both"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="at">Description =</span> <span class="fu">c</span>(<span class="st">"Learn NYC Uber case and make a conclusion"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7"></a>                  <span class="st">"List and understand variables from the dataset and decide what to explore"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8"></a>                  <span class="st">"Write up things we will do and the project structure"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9"></a>                  <span class="st">"Combine tables and select the useful column. Unify"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10"></a>                  <span class="st">"Wrangle the factor (characters…), format, etc."</span>,</span>
+<span id="cb1-11"><a href="#cb1-11"></a>                  <span class="st">"Visualize the heaviest pumpkins"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>                  <span class="st">"Create a spatial map of weights"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13"></a>                  <span class="st">"Write up and prepare final presentation"</span>),</span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="at">Time =</span> <span class="fu">c</span>(<span class="st">"Week 1"</span>, <span class="st">"Week 1"</span>, <span class="st">"Week 1"</span>, <span class="st">"Week 2"</span>,<span class="st">"Week 2"</span>, <span class="st">"Week 2"</span>, <span class="st">"Week 2"</span>, <span class="st">"Week 3"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>)</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>plan1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 4
   Tasks                                                  Name  Description Time 
@@ -950,23 +949,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-20"><a href="#cb3-20"></a><span class="in">```{r}</span></span>
 <span id="cb3-21"><a href="#cb3-21"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb3-22"><a href="#cb3-22"></a></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co"># 第一张表格</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a>plan1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-25"><a href="#cb3-25"></a>  <span class="at">Tasks =</span> <span class="fu">c</span>(<span class="st">"Case study"</span>, <span class="st">"Identify variables of interest/ Develop research question(s)"</span>, <span class="st">"Outline"</span>, <span class="st">"Clean data"</span>,<span class="st">"Data wrangling – compute metrics"</span>, <span class="st">"Visualization – top 10 bar plot"</span>, <span class="st">"Visualization – region map"</span>, <span class="st">"Final outline/report"</span>),</span>
-<span id="cb3-26"><a href="#cb3-26"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">"Leah and Alena"</span>, <span class="st">"Both"</span>, <span class="st">"Both"</span>, <span class="st">"Alena"</span>,<span class="st">"Leah"</span>, <span class="st">"Alena"</span>, <span class="st">"Leah"</span>, <span class="st">"Both"</span>),</span>
-<span id="cb3-27"><a href="#cb3-27"></a>  <span class="at">Description =</span> <span class="fu">c</span>(<span class="st">"Learn NYC Uber case and make a conclusion"</span>,</span>
-<span id="cb3-28"><a href="#cb3-28"></a>                  <span class="st">"List and understand variables from the dataset and decide what to explore"</span>,</span>
-<span id="cb3-29"><a href="#cb3-29"></a>                  <span class="st">"Write up things we will do and the project structure"</span>,</span>
-<span id="cb3-30"><a href="#cb3-30"></a>                  <span class="st">"Combine tables and select the useful column. Unify"</span>,</span>
-<span id="cb3-31"><a href="#cb3-31"></a>                  <span class="st">"Wrangle the factor (characters…), format, etc."</span>,</span>
-<span id="cb3-32"><a href="#cb3-32"></a>                  <span class="st">"Visualize the heaviest pumpkins"</span>,</span>
-<span id="cb3-33"><a href="#cb3-33"></a>                  <span class="st">"Create a spatial map of weights"</span>,</span>
-<span id="cb3-34"><a href="#cb3-34"></a>                  <span class="st">"Write up and prepare final presentation"</span>),</span>
-<span id="cb3-35"><a href="#cb3-35"></a>  <span class="at">Time =</span> <span class="fu">c</span>(<span class="st">"Week 1"</span>, <span class="st">"Week 1"</span>, <span class="st">"Week 1"</span>, <span class="st">"Week 2"</span>,<span class="st">"Week 2"</span>, <span class="st">"Week 2"</span>, <span class="st">"Week 2"</span>, <span class="st">"Week 3"</span>)</span>
-<span id="cb3-36"><a href="#cb3-36"></a>)</span>
-<span id="cb3-37"><a href="#cb3-37"></a></span>
-<span id="cb3-38"><a href="#cb3-38"></a>plan1</span>
-<span id="cb3-39"><a href="#cb3-39"></a><span class="in">```</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>plan1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-24"><a href="#cb3-24"></a>  <span class="at">Tasks =</span> <span class="fu">c</span>(<span class="st">"Case study"</span>, <span class="st">"Identify variables of interest/ Develop research question(s)"</span>, <span class="st">"Outline"</span>, <span class="st">"Clean data"</span>,<span class="st">"Data wrangling – compute metrics"</span>, <span class="st">"Visualization – top 10 bar plot"</span>, <span class="st">"Visualization – region map"</span>, <span class="st">"Final outline/report"</span>),</span>
+<span id="cb3-25"><a href="#cb3-25"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">"Leah and Alena"</span>, <span class="st">"Both"</span>, <span class="st">"Both"</span>, <span class="st">"Alena"</span>,<span class="st">"Leah"</span>, <span class="st">"Alena"</span>, <span class="st">"Leah"</span>, <span class="st">"Both"</span>),</span>
+<span id="cb3-26"><a href="#cb3-26"></a>  <span class="at">Description =</span> <span class="fu">c</span>(<span class="st">"Learn NYC Uber case and make a conclusion"</span>,</span>
+<span id="cb3-27"><a href="#cb3-27"></a>                  <span class="st">"List and understand variables from the dataset and decide what to explore"</span>,</span>
+<span id="cb3-28"><a href="#cb3-28"></a>                  <span class="st">"Write up things we will do and the project structure"</span>,</span>
+<span id="cb3-29"><a href="#cb3-29"></a>                  <span class="st">"Combine tables and select the useful column. Unify"</span>,</span>
+<span id="cb3-30"><a href="#cb3-30"></a>                  <span class="st">"Wrangle the factor (characters…), format, etc."</span>,</span>
+<span id="cb3-31"><a href="#cb3-31"></a>                  <span class="st">"Visualize the heaviest pumpkins"</span>,</span>
+<span id="cb3-32"><a href="#cb3-32"></a>                  <span class="st">"Create a spatial map of weights"</span>,</span>
+<span id="cb3-33"><a href="#cb3-33"></a>                  <span class="st">"Write up and prepare final presentation"</span>),</span>
+<span id="cb3-34"><a href="#cb3-34"></a>  <span class="at">Time =</span> <span class="fu">c</span>(<span class="st">"Week 1"</span>, <span class="st">"Week 1"</span>, <span class="st">"Week 1"</span>, <span class="st">"Week 2"</span>,<span class="st">"Week 2"</span>, <span class="st">"Week 2"</span>, <span class="st">"Week 2"</span>, <span class="st">"Week 3"</span>)</span>
+<span id="cb3-35"><a href="#cb3-35"></a>)</span>
+<span id="cb3-36"><a href="#cb3-36"></a></span>
+<span id="cb3-37"><a href="#cb3-37"></a>plan1</span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
