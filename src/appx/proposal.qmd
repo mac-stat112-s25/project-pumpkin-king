@@ -18,7 +18,6 @@ Reasons: First, the theme of this dataset is interesting and attractive. How big
 ```{r}
 library(tibble)
 
-# 第一张表格
 plan1 <- tibble(
   Tasks = c("Case study", "Identify variables of interest/ Develop research question(s)", "Outline", "Clean data","Data wrangling – compute metrics", "Visualization – top 10 bar plot", "Visualization – region map", "Final outline/report"),
   Name = c("Leah and Alena", "Both", "Both", "Alena","Leah", "Alena", "Leah", "Both"),

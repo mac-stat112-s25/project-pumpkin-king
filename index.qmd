@@ -1,7 +1,7 @@
 ---
 title: "Report"
 execute:
-  echo: true
+  echo: false
   warning: false
   error: false
   
@@ -212,7 +212,7 @@ ggplot(us_map_data, aes(x = long, y = lat, group = group, fill = avg_weight)) +
   coord_fixed(1.3) +
   scale_fill_gradient(
     low = "#FFF5E1",  
-    high = "#FF4500",  # 深橙红色（接近南瓜皮深色）
+    high = "#FF4500",  
     na.value = "grey90",
     name = "Avg Weight (lbs)"
   ) +
@@ -249,5 +249,8 @@ In short, the best pumpkin growers combine the right seeds with the right place.
 
 Data source: TidyTuesday / GPC
 
-Below is the video of our project
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YYoKZSRpj-s?si=FoAPp8tfbGZ_AiMe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Below is the video of our project which describes our reseach question and generl visualization：
+
+<iframe width="960" height="569" src="https://www.youtube.com/embed/YYoKZSRpj-s?si=FoAPp8tfbGZ_AiMe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQaDAA4HJdKet1zaIPyIZnbBIvM_oPngg_q73ajfBRamhyUJUYOqhmR_KhiG4VdjwoSo6ouxnYuAb57/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
