@@ -134,7 +134,7 @@ cookieconsent.run({
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">sidebar title</a> 
+      <a href="../../">Pumpkin King</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -170,13 +170,13 @@ cookieconsent.run({
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/et/leah-z.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Leah-z</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Leah Z</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/et/alena-h.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Alena-H</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Alena H</span></span></a>
   </div>
 </li>
       </ul>
@@ -193,7 +193,7 @@ cookieconsent.run({
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/eda/leah-z.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Leah-Z</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Leah Z</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -237,21 +237,17 @@ cookieconsent.run({
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-<li><a href="#boxplot-by-place-group" id="toc-boxplot-by-place-group" class="nav-link active" data-scroll-target="#boxplot-by-place-group"><span class="header-section-number">D</span> Boxplot by place group</a></li>
-  </ul></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/Giant Pumpkin.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Giant Pumpkin</span></a></li></ol></nav><div class="quarto-title">
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/proposal.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/Giant Pumpkin.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Giant Pumpkin</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Appendix C — Giant Pumpkin</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -361,40 +357,172 @@ chr (14): id, place, weight_lbs, grower_name, city, state_prov, country, gpc...
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#Overall Weight Distribution</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>pumpkins<span class="sc">$</span>weight_lbs <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(pumpkins<span class="sc">$</span>weight_lbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>pumpkins_clean <span class="ot">&lt;-</span> pumpkins <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">mutate</span>(<span class="at">weight_lbs =</span> <span class="fu">as.numeric</span>(weight_lbs))   <span class="co"># This turns invalid text into NA automatically</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `weight_lbs = as.numeric(weight_lbs)`.
+Caused by warning:
+! NAs introduced by coercion</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Then continue:</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>pumpkin_weight_summary <span class="ot">&lt;-</span> pumpkins_clean <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"^[A-Za-z '</span><span class="sc">\\</span><span class="st">-]+$"</span>, country)) <span class="sc">%&gt;%</span>   <span class="co"># keep only real country names</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="at">n            =</span> <span class="fu">n</span>(),</span>
+<span id="cb14-7"><a href="#cb14-7"></a>    <span class="at">mean_wt      =</span> <span class="fu">mean</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-8"><a href="#cb14-8"></a>    <span class="at">median_wt    =</span> <span class="fu">median</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-9"><a href="#cb14-9"></a>    <span class="at">sd_wt        =</span> <span class="fu">sd</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-10"><a href="#cb14-10"></a>    <span class="at">min_wt       =</span> <span class="fu">min</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-11"><a href="#cb14-11"></a>    <span class="at">max_wt       =</span> <span class="fu">max</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-12"><a href="#cb14-12"></a>    <span class="at">iqr_wt       =</span> <span class="fu">IQR</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-13"><a href="#cb14-13"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>  <span class="fu">arrange</span>(country)</span>
+<span id="cb14-15"><a href="#cb14-15"></a></span>
+<span id="cb14-16"><a href="#cb14-16"></a><span class="fu">print</span>(pumpkin_weight_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21 × 8
+   country       n mean_wt median_wt sd_wt min_wt max_wt iqr_wt
+   &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Australia     5    252.     164.   187. 105.     534    245.
+ 2 Austria     602    349.     301.   299.   0.8    995.   521.
+ 3 Belgium     360    558.     561.   253.   1.32  1000.   361.
+ 4 Canada     4522    294.     123    307.   0.24   999    491.
+ 5 Finland     244    166.      87.4  195.   1      950.   233.
+ 6 France      405    231.      94.5  274.   1.18   996.   353.
+ 7 Germany    2175    286.     176.   278.   0.1   1000.   391.
+ 8 Ireland      21    194.     108    228.  16.5    918    170.
+ 9 Italy       846    305.     199.   265.   1.2    999.   385.
+10 Japan       358    283.     167.   275.   7.7    992.   412.
+# ℹ 11 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">#Overall Weight Distribution</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>pumpkins<span class="sc">$</span>weight_lbs <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(pumpkins<span class="sc">$</span>weight_lbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: NAs introduced by coercion</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(pumpkins, <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-4"><a href="#cb14-4"></a>    <span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
-<span id="cb14-6"><a href="#cb14-6"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) in 2021 from BigPumpkins.com by Leah Zhang"</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a>  ) <span class="sc">+</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(pumpkins, <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-4"><a href="#cb18-4"></a>    <span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 5267 rows containing non-finite outside the scale range
 (`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="Giant-Pumpkin_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="Giant-Pumpkin_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>#Weight Distribution by Place pumpl &lt;- df %&gt;% mutate( weight_lbs = as.numeric(weight_lbs), pct_chart = as.numeric(pct_chart), place_clean = parse_number(place) # safer conversion ) %&gt;% # drop rows where place is missing or zero after parsing filter(!is.na(place_clean) &amp; place_clean &gt; 0) %&gt;% mutate( place_group = case_when( place_clean &lt;= 5 ~ “1–5”, place_clean &lt;= 10 ~ “6–10”, TRUE ~ “&gt;10” ), pct_quartile = ntile(pct_chart, 4), pct_quartile = factor(pct_quartile, levels = 1:4, labels = c(“Q1 (lowest)”, “Q2”, “Q3”, “Q4 (highest)”)) )</p>
-<section id="boxplot-by-place-group" class="level1" data-number="D"><h1 data-number="D">
-<span class="header-section-number">D</span> Boxplot by place group</h1>
-<p>ggplot(df2, aes(x = place_group, y = weight_lbs)) + geom_boxplot(outlier.size = 0.5) + labs( x = “Place Group”, y = “Pumpkin Weight (lbs)”, title = “Weight Distribution by Place Group” ) + theme_minimal(base_size = 14)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">#Weight Distribution by Country</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>pumpkins1 <span class="ot">&lt;-</span> pumpkins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight_lbs))</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">ggplot</span>(pumpkins1, <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span> </span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">+</span> </span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> country) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-7"><a href="#cb20-7"></a>    <span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights by Country"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb20-13"><a href="#cb20-13"></a>  <span class="fu">theme</span>(</span>
+<span id="cb20-14"><a href="#cb20-14"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>), </span>
+<span id="cb20-15"><a href="#cb20-15"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>)</span>
+<span id="cb20-16"><a href="#cb20-16"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Giant-Pumpkin_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#Look at Specific Countries</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#United States</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">ggplot</span>(pumpkins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"United States"</span>),</span>
+<span id="cb21-4"><a href="#cb21-4"></a>       <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">25</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights in the United States"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb21-9"><a href="#cb21-9"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-11"><a href="#cb21-11"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 3771 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Giant-Pumpkin_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">#Look at Specific Countries</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="co">#Canada</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">ggplot</span>(pumpkins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Canada"</span>),</span>
+<span id="cb23-4"><a href="#cb23-4"></a>       <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">25</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights in Canada"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb23-9"><a href="#cb23-9"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a>  ) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 672 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Giant-Pumpkin_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">#Look at Specific Countries</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="co">#Germany</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">ggplot</span>(pumpkins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>),</span>
+<span id="cb25-4"><a href="#cb25-4"></a>       <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">25</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights in Germany"</span>,</span>
+<span id="cb25-7"><a href="#cb25-7"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb25-8"><a href="#cb25-8"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb25-9"><a href="#cb25-9"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb25-10"><a href="#cb25-10"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 196 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Giant-Pumpkin_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 <!-- -->
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1013,7 +1141,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
+</script><nav class="page-navigation column-page-right"><div class="nav-page nav-page-previous">
       <a href="../../src/appx/case-study.html" class="pagination-link" aria-label="Case Study">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Case Study</span></span>
       </a>          
@@ -1021,85 +1149,136 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-next">
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">---</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="an">title:</span><span class="co"> "Giant Pumpkin"</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co">---</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="in">```{r}</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb16-10"><a href="#cb16-10"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="in">```</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a></span>
-<span id="cb16-15"><a href="#cb16-15"></a><span class="in">```{r}</span></span>
-<span id="cb16-16"><a href="#cb16-16"></a><span class="co"># Get the Data</span></span>
-<span id="cb16-17"><a href="#cb16-17"></a></span>
-<span id="cb16-18"><a href="#cb16-18"></a><span class="co"># Read in with tidytuesdayR package </span></span>
-<span id="cb16-19"><a href="#cb16-19"></a><span class="co"># Install from CRAN via: install.packages("tidytuesdayR")</span></span>
-<span id="cb16-20"><a href="#cb16-20"></a><span class="co"># This loads the readme and all the datasets for the week of interest</span></span>
-<span id="cb16-21"><a href="#cb16-21"></a></span>
-<span id="cb16-22"><a href="#cb16-22"></a><span class="co"># Either ISO-8601 date or year/week works!</span></span>
-<span id="cb16-23"><a href="#cb16-23"></a></span>
-<span id="cb16-24"><a href="#cb16-24"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2021-10-19'</span>)</span>
-<span id="cb16-25"><a href="#cb16-25"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2021</span>, <span class="at">week =</span> <span class="dv">43</span>)</span>
-<span id="cb16-26"><a href="#cb16-26"></a></span>
-<span id="cb16-27"><a href="#cb16-27"></a>pumpkins <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>pumpkins</span>
-<span id="cb16-28"><a href="#cb16-28"></a></span>
-<span id="cb16-29"><a href="#cb16-29"></a><span class="co"># Or read in the data manually</span></span>
-<span id="cb16-30"><a href="#cb16-30"></a></span>
-<span id="cb16-31"><a href="#cb16-31"></a>pumpkins <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-19/pumpkins.csv'</span>)</span>
-<span id="cb16-32"><a href="#cb16-32"></a><span class="in">```</span></span>
-<span id="cb16-33"><a href="#cb16-33"></a></span>
-<span id="cb16-36"><a href="#cb16-36"></a><span class="in">```{r}</span></span>
-<span id="cb16-37"><a href="#cb16-37"></a><span class="fu">str</span>(pumpkins)</span>
-<span id="cb16-38"><a href="#cb16-38"></a><span class="in">```</span></span>
-<span id="cb16-39"><a href="#cb16-39"></a></span>
-<span id="cb16-42"><a href="#cb16-42"></a><span class="in">```{r}</span></span>
-<span id="cb16-43"><a href="#cb16-43"></a><span class="co">#Overall Weight Distribution</span></span>
-<span id="cb16-44"><a href="#cb16-44"></a>pumpkins<span class="sc">$</span>weight_lbs <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(pumpkins<span class="sc">$</span>weight_lbs)</span>
-<span id="cb16-45"><a href="#cb16-45"></a><span class="fu">ggplot</span>(pumpkins, <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
-<span id="cb16-46"><a href="#cb16-46"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb16-47"><a href="#cb16-47"></a>  <span class="fu">labs</span>(</span>
-<span id="cb16-48"><a href="#cb16-48"></a>    <span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights"</span>,</span>
-<span id="cb16-49"><a href="#cb16-49"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
-<span id="cb16-50"><a href="#cb16-50"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb16-51"><a href="#cb16-51"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) in 2021 from BigPumpkins.com by Leah Zhang"</span></span>
-<span id="cb16-52"><a href="#cb16-52"></a>  ) <span class="sc">+</span></span>
-<span id="cb16-53"><a href="#cb16-53"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb16-54"><a href="#cb16-54"></a><span class="in">```</span></span>
-<span id="cb16-55"><a href="#cb16-55"></a></span>
-<span id="cb16-58"><a href="#cb16-58"></a><span class="in">```{r}</span></span>
-<span id="cb16-59"><a href="#cb16-59"></a><span class="co">#Weight Distribution by Place</span></span>
-<span id="cb16-60"><a href="#cb16-60"></a>pumpl <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb16-61"><a href="#cb16-61"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb16-62"><a href="#cb16-62"></a>    <span class="at">weight_lbs   =</span> <span class="fu">as.numeric</span>(weight_lbs),</span>
-<span id="cb16-63"><a href="#cb16-63"></a>    <span class="at">pct_chart    =</span> <span class="fu">as.numeric</span>(pct_chart),</span>
-<span id="cb16-64"><a href="#cb16-64"></a>    <span class="at">place_clean  =</span> <span class="fu">parse_number</span>(place)             <span class="co"># safer conversion</span></span>
-<span id="cb16-65"><a href="#cb16-65"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb16-66"><a href="#cb16-66"></a>  <span class="co"># drop rows where place is missing or zero after parsing</span></span>
-<span id="cb16-67"><a href="#cb16-67"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(place_clean) <span class="sc">&amp;</span> place_clean <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-68"><a href="#cb16-68"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb16-69"><a href="#cb16-69"></a>    <span class="at">place_group =</span> <span class="fu">case_when</span>(</span>
-<span id="cb16-70"><a href="#cb16-70"></a>      place_clean <span class="sc">&lt;=</span> <span class="dv">5</span>  <span class="sc">~</span> <span class="st">"1–5"</span>,</span>
-<span id="cb16-71"><a href="#cb16-71"></a>      place_clean <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">"6–10"</span>,</span>
-<span id="cb16-72"><a href="#cb16-72"></a>      <span class="cn">TRUE</span>              <span class="sc">~</span> <span class="st">"&gt;10"</span></span>
-<span id="cb16-73"><a href="#cb16-73"></a>    ),</span>
-<span id="cb16-74"><a href="#cb16-74"></a>    <span class="at">pct_quartile =</span> <span class="fu">ntile</span>(pct_chart, <span class="dv">4</span>),</span>
-<span id="cb16-75"><a href="#cb16-75"></a>    <span class="at">pct_quartile =</span> <span class="fu">factor</span>(pct_quartile,</span>
-<span id="cb16-76"><a href="#cb16-76"></a>                          <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
-<span id="cb16-77"><a href="#cb16-77"></a>                          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Q1 (lowest)"</span>, <span class="st">"Q2"</span>, <span class="st">"Q3"</span>, <span class="st">"Q4 (highest)"</span>))</span>
-<span id="cb16-78"><a href="#cb16-78"></a>  )</span>
-<span id="cb16-79"><a href="#cb16-79"></a></span>
-<span id="cb16-80"><a href="#cb16-80"></a><span class="co"># Boxplot by place group</span></span>
-<span id="cb16-81"><a href="#cb16-81"></a><span class="fu">ggplot</span>(df2, <span class="fu">aes</span>(<span class="at">x =</span> place_group, <span class="at">y =</span> weight_lbs)) <span class="sc">+</span></span>
-<span id="cb16-82"><a href="#cb16-82"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb16-83"><a href="#cb16-83"></a>  <span class="fu">labs</span>(</span>
-<span id="cb16-84"><a href="#cb16-84"></a>    <span class="at">x     =</span> <span class="st">"Place Group"</span>,</span>
-<span id="cb16-85"><a href="#cb16-85"></a>    <span class="at">y     =</span> <span class="st">"Pumpkin Weight (lbs)"</span>,</span>
-<span id="cb16-86"><a href="#cb16-86"></a>    <span class="at">title =</span> <span class="st">"Weight Distribution by Place Group"</span></span>
-<span id="cb16-87"><a href="#cb16-87"></a>  ) <span class="sc">+</span></span>
-<span id="cb16-88"><a href="#cb16-88"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span>
-<span id="cb16-89"><a href="#cb16-89"></a></span>
+<div class="sourceCode" id="cb27" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">---</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="an">title:</span><span class="co"> "Giant Pumpkin"</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="co">---</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a><span class="in">```{r}</span></span>
+<span id="cb27-7"><a href="#cb27-7"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb27-9"><a href="#cb27-9"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="in">```</span></span>
+<span id="cb27-12"><a href="#cb27-12"></a></span>
+<span id="cb27-15"><a href="#cb27-15"></a><span class="in">```{r}</span></span>
+<span id="cb27-16"><a href="#cb27-16"></a><span class="co"># Get the Data</span></span>
+<span id="cb27-17"><a href="#cb27-17"></a></span>
+<span id="cb27-18"><a href="#cb27-18"></a><span class="co"># Read in with tidytuesdayR package </span></span>
+<span id="cb27-19"><a href="#cb27-19"></a><span class="co"># Install from CRAN via: install.packages("tidytuesdayR")</span></span>
+<span id="cb27-20"><a href="#cb27-20"></a><span class="co"># This loads the readme and all the datasets for the week of interest</span></span>
+<span id="cb27-21"><a href="#cb27-21"></a></span>
+<span id="cb27-22"><a href="#cb27-22"></a><span class="co"># Either ISO-8601 date or year/week works!</span></span>
+<span id="cb27-23"><a href="#cb27-23"></a></span>
+<span id="cb27-24"><a href="#cb27-24"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">'2021-10-19'</span>)</span>
+<span id="cb27-25"><a href="#cb27-25"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="dv">2021</span>, <span class="at">week =</span> <span class="dv">43</span>)</span>
+<span id="cb27-26"><a href="#cb27-26"></a></span>
+<span id="cb27-27"><a href="#cb27-27"></a>pumpkins <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>pumpkins</span>
+<span id="cb27-28"><a href="#cb27-28"></a></span>
+<span id="cb27-29"><a href="#cb27-29"></a><span class="co"># Or read in the data manually</span></span>
+<span id="cb27-30"><a href="#cb27-30"></a></span>
+<span id="cb27-31"><a href="#cb27-31"></a>pumpkins <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-19/pumpkins.csv'</span>)</span>
+<span id="cb27-32"><a href="#cb27-32"></a><span class="in">```</span></span>
+<span id="cb27-33"><a href="#cb27-33"></a></span>
+<span id="cb27-36"><a href="#cb27-36"></a><span class="in">```{r}</span></span>
+<span id="cb27-37"><a href="#cb27-37"></a><span class="fu">str</span>(pumpkins)</span>
+<span id="cb27-38"><a href="#cb27-38"></a><span class="in">```</span></span>
+<span id="cb27-41"><a href="#cb27-41"></a><span class="in">```{r}</span></span>
+<span id="cb27-42"><a href="#cb27-42"></a>pumpkins_clean <span class="ot">&lt;-</span> pumpkins <span class="sc">%&gt;%</span></span>
+<span id="cb27-43"><a href="#cb27-43"></a>  <span class="fu">mutate</span>(<span class="at">weight_lbs =</span> <span class="fu">as.numeric</span>(weight_lbs))   <span class="co"># This turns invalid text into NA automatically</span></span>
+<span id="cb27-44"><a href="#cb27-44"></a></span>
+<span id="cb27-45"><a href="#cb27-45"></a><span class="co"># Then continue:</span></span>
+<span id="cb27-46"><a href="#cb27-46"></a>pumpkin_weight_summary <span class="ot">&lt;-</span> pumpkins_clean <span class="sc">%&gt;%</span></span>
+<span id="cb27-47"><a href="#cb27-47"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"^[A-Za-z '</span><span class="sc">\\</span><span class="st">-]+$"</span>, country)) <span class="sc">%&gt;%</span>   <span class="co"># keep only real country names</span></span>
+<span id="cb27-48"><a href="#cb27-48"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb27-49"><a href="#cb27-49"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb27-50"><a href="#cb27-50"></a>    <span class="at">n            =</span> <span class="fu">n</span>(),</span>
+<span id="cb27-51"><a href="#cb27-51"></a>    <span class="at">mean_wt      =</span> <span class="fu">mean</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb27-52"><a href="#cb27-52"></a>    <span class="at">median_wt    =</span> <span class="fu">median</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb27-53"><a href="#cb27-53"></a>    <span class="at">sd_wt        =</span> <span class="fu">sd</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb27-54"><a href="#cb27-54"></a>    <span class="at">min_wt       =</span> <span class="fu">min</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb27-55"><a href="#cb27-55"></a>    <span class="at">max_wt       =</span> <span class="fu">max</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb27-56"><a href="#cb27-56"></a>    <span class="at">iqr_wt       =</span> <span class="fu">IQR</span>(weight_lbs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-57"><a href="#cb27-57"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb27-58"><a href="#cb27-58"></a>  <span class="fu">arrange</span>(country)</span>
+<span id="cb27-59"><a href="#cb27-59"></a></span>
+<span id="cb27-60"><a href="#cb27-60"></a><span class="fu">print</span>(pumpkin_weight_summary)</span>
+<span id="cb27-61"><a href="#cb27-61"></a><span class="in">```</span></span>
+<span id="cb27-62"><a href="#cb27-62"></a></span>
+<span id="cb27-65"><a href="#cb27-65"></a><span class="in">```{r}</span></span>
+<span id="cb27-66"><a href="#cb27-66"></a><span class="co">#Overall Weight Distribution</span></span>
+<span id="cb27-67"><a href="#cb27-67"></a>pumpkins<span class="sc">$</span>weight_lbs <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(pumpkins<span class="sc">$</span>weight_lbs)</span>
+<span id="cb27-68"><a href="#cb27-68"></a><span class="fu">ggplot</span>(pumpkins, <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
+<span id="cb27-69"><a href="#cb27-69"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">+</span></span>
+<span id="cb27-70"><a href="#cb27-70"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-71"><a href="#cb27-71"></a>    <span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights"</span>,</span>
+<span id="cb27-72"><a href="#cb27-72"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb27-73"><a href="#cb27-73"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb27-74"><a href="#cb27-74"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb27-75"><a href="#cb27-75"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-76"><a href="#cb27-76"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb27-77"><a href="#cb27-77"></a><span class="in">```</span></span>
+<span id="cb27-78"><a href="#cb27-78"></a></span>
+<span id="cb27-79"><a href="#cb27-79"></a></span>
+<span id="cb27-82"><a href="#cb27-82"></a><span class="in">```{r}</span></span>
+<span id="cb27-83"><a href="#cb27-83"></a><span class="co">#Weight Distribution by Country</span></span>
+<span id="cb27-84"><a href="#cb27-84"></a>pumpkins1 <span class="ot">&lt;-</span> pumpkins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight_lbs))</span>
+<span id="cb27-85"><a href="#cb27-85"></a><span class="fu">ggplot</span>(pumpkins1, <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span> </span>
+<span id="cb27-86"><a href="#cb27-86"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">bins =</span> <span class="dv">25</span>) <span class="sc">+</span> </span>
+<span id="cb27-87"><a href="#cb27-87"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> country) <span class="sc">+</span></span>
+<span id="cb27-88"><a href="#cb27-88"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-89"><a href="#cb27-89"></a>    <span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights by Country"</span>,</span>
+<span id="cb27-90"><a href="#cb27-90"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb27-91"><a href="#cb27-91"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb27-92"><a href="#cb27-92"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb27-93"><a href="#cb27-93"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-94"><a href="#cb27-94"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-95"><a href="#cb27-95"></a>  <span class="fu">theme</span>(</span>
+<span id="cb27-96"><a href="#cb27-96"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>), </span>
+<span id="cb27-97"><a href="#cb27-97"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>)</span>
+<span id="cb27-98"><a href="#cb27-98"></a>  )</span>
+<span id="cb27-99"><a href="#cb27-99"></a></span>
+<span id="cb27-100"><a href="#cb27-100"></a><span class="in">```</span></span>
+<span id="cb27-101"><a href="#cb27-101"></a></span>
+<span id="cb27-104"><a href="#cb27-104"></a><span class="in">```{r}</span></span>
+<span id="cb27-105"><a href="#cb27-105"></a><span class="co">#Look at Specific Countries</span></span>
+<span id="cb27-106"><a href="#cb27-106"></a><span class="co">#United States</span></span>
+<span id="cb27-107"><a href="#cb27-107"></a><span class="fu">ggplot</span>(pumpkins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"United States"</span>),</span>
+<span id="cb27-108"><a href="#cb27-108"></a>       <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
+<span id="cb27-109"><a href="#cb27-109"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">25</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-110"><a href="#cb27-110"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights in the United States"</span>,</span>
+<span id="cb27-111"><a href="#cb27-111"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb27-112"><a href="#cb27-112"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb27-113"><a href="#cb27-113"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb27-114"><a href="#cb27-114"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-115"><a href="#cb27-115"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb27-116"><a href="#cb27-116"></a><span class="in">```</span></span>
+<span id="cb27-117"><a href="#cb27-117"></a></span>
+<span id="cb27-120"><a href="#cb27-120"></a><span class="in">```{r}</span></span>
+<span id="cb27-121"><a href="#cb27-121"></a><span class="co">#Look at Specific Countries</span></span>
+<span id="cb27-122"><a href="#cb27-122"></a><span class="co">#Canada</span></span>
+<span id="cb27-123"><a href="#cb27-123"></a><span class="fu">ggplot</span>(pumpkins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Canada"</span>),</span>
+<span id="cb27-124"><a href="#cb27-124"></a>       <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
+<span id="cb27-125"><a href="#cb27-125"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">25</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-126"><a href="#cb27-126"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights in Canada"</span>,</span>
+<span id="cb27-127"><a href="#cb27-127"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb27-128"><a href="#cb27-128"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb27-129"><a href="#cb27-129"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb27-130"><a href="#cb27-130"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-131"><a href="#cb27-131"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb27-132"><a href="#cb27-132"></a><span class="in">```</span></span>
+<span id="cb27-133"><a href="#cb27-133"></a></span>
+<span id="cb27-136"><a href="#cb27-136"></a><span class="in">```{r}</span></span>
+<span id="cb27-137"><a href="#cb27-137"></a><span class="co">#Look at Specific Countries</span></span>
+<span id="cb27-138"><a href="#cb27-138"></a><span class="co">#Germany</span></span>
+<span id="cb27-139"><a href="#cb27-139"></a><span class="fu">ggplot</span>(pumpkins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>),</span>
+<span id="cb27-140"><a href="#cb27-140"></a>       <span class="fu">aes</span>(<span class="at">x =</span> weight_lbs)) <span class="sc">+</span></span>
+<span id="cb27-141"><a href="#cb27-141"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">25</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb27-142"><a href="#cb27-142"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Pumpkin Weights in Germany"</span>,</span>
+<span id="cb27-143"><a href="#cb27-143"></a>    <span class="at">x =</span> <span class="st">"Weight (lbs)"</span>,</span>
+<span id="cb27-144"><a href="#cb27-144"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb27-145"><a href="#cb27-145"></a>    <span class="at">caption =</span> <span class="st">"Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"</span></span>
+<span id="cb27-146"><a href="#cb27-146"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-147"><a href="#cb27-147"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb27-148"><a href="#cb27-148"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
