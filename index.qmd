@@ -1,13 +1,256 @@
 ---
 title: "Report"
-execute: 
-  echo: true      # change to true to show the code
-code-fold: false  # change to true to fold the code chunks
+execute:
+  echo: false
+  warning: false
+  error: false
+  
+format:
+  html:
+    code-fold: true
 ---
 
-Your report will go here.
+How Pumpkin Growing Power Differs Across the World.
+
+Every fall, growers all over the world compete to grow the heaviest pumpkins. But not all pumpkins, or all regions, are created equal. Our analysis finds that pumpkin weight varies significantly based on genetics, location, and even yearly conditions.
+
+We analyzed competition data from the Great Pumpkin Commonwealth (GPC) from 2013 to 2020. We both focus on the pumpkin growth the global scale and specifically about the the United States, where the majority of entries are recorded. Using over 6,000 entries, we explored how seed genetics and regional growing conditions impact pumpkin weight.
+
+Genetic Factors: Seed Mothers and Pollinator Fathers
+
+Genetics plays a major role in how heavy a pumpkin can grow. We first looked at the "seed mother" lineage—the maternal side of the pumpkin family.
 
 ```{r}
-# this is a test code
+tuesdata <- tidytuesdayR::tt_load('2021-10-19')
+tuesdata <- tidytuesdayR::tt_load(2021, week = 43)
+
+pumpkins <- tuesdata$pumpkins
+
+# Or read in the data manually
+
+pumpkins <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-19/pumpkins.csv')
+library(dplyr)
+library(stringr)
+library(ggplot2)
+
+pumpkin_clean <- pumpkins %>%
+  mutate(
+    weight_lbs = as.numeric(weight_lbs),
+    seed_mother = as.factor(seed_mother),
+    pollinator_father = as.factor(pollinator_father)
+  ) %>%
+  filter(!is.na(weight_lbs), !is.na(seed_mother), !is.na(pollinator_father))
+pumpkin_clean %>%
+  filter(seed_mother %in% names(sort(table(seed_mother), decreasing = TRUE)[1:10])) %>%
+  ggplot(aes(x = seed_mother, y = weight_lbs)) +
+  geom_boxplot(fill = "#FFA500", color = "#8B4513") +
+  labs(title = "Pumpkin Weight by Top 10 Seed Mothers", x = "Seed Mother", y = "Weight (lbs)",caption = "Data source: GPC Competition Data (2013-2020) by Alena Han") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
 ```
 
+
+The data shows that pumpkins from seed mothers like "2008 Neptune" and "2145 McMullen" consistently produce heavier entries, while others like "81 Wolf" have lower median weights. This highlights that superior seed lines can offer growers a significant advantage.
+
+The pollinator father's side tells a similar story.
+
+```{r}
+library(ggplot2)
+
+pumpkin_clean %>%
+  filter(pollinator_father %in% names(sort(table(pollinator_father), decreasing = TRUE)[1:10])) %>%
+  ggplot(aes(x = pollinator_father, y = weight_lbs)) +
+  geom_boxplot(fill = "#FFA500", color = "#8B4513") +
+  labs(title = "Pumpkin Weight by Top 10 pollinator_father", x = "pollinator_father", y = "Weight (lbs)", caption = "Data source: GPC Competition Data (2013-2020) by Alena Han") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+
+Notably, pumpkins pollinated by "2009 Wallace" lines stood out with much heavier median weights, compared to more generic "self" or "open" pollination sources. The importance of strategic breeding is clear: winning pumpkins often come from carefully selected parentage.
+
+Regional Trends: How Pumpkin Weight Changes Over Time
+
+Location matters too. Environmental factors such as soil quality, temperature, and growing culture differ across regions. We zoomed into the six U.S. states and provinces with the most competition entries: California, Michigan, Ohio, Ontario, Wisconsin, and a general "Other" category.
+
+```{r}
+library(tidyverse)
+
+pumpkins <- pumpkins %>%
+  mutate(year = as.numeric(str_extract(id, "^\\d{4}"))) %>%
+  filter(!is.na(state_prov), !is.na(weight_lbs))
+
+
+top_states <- pumpkins %>%
+  count(state_prov, sort = TRUE) %>%
+  slice_head(n = 6) %>%
+  pull(state_prov)
+
+
+pumpkins_avg <- pumpkins %>%
+  filter(state_prov %in% top_states) %>%
+  group_by(state_prov, year) %>%
+  summarise(avg_weight = mean(as.numeric(weight_lbs), na.rm = TRUE)) %>%
+  ungroup()
+
+
+ggplot(pumpkins_avg, aes(x = year, y = avg_weight)) +
+  geom_line(color = "#FFA500", size = 1.2) +
+  geom_point(color = "black", size = 2) +
+  facet_wrap(~ state_prov) +
+  scale_x_continuous(breaks = seq(2013, 2020, 2)) +  
+  labs(
+    title = "Average Pumpkin Weight Over Time by State (Top 6 States)",
+    x = "Year",
+    y = "Average Weight (lbs)",
+    caption = "Data source: GPC Competition Data (2013-2020) by Alena Han"
+  ) +
+  theme_minimal() +
+  theme(
+    strip.text = element_text(size = 10),
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    plot.caption = element_text(hjust = 0.5, size = 8),
+    axis.text.x = element_text(angle = 0, size = 9)  
+  )
+
+
+```
+
+
+From 2013 to 2020, no state showed dramatic year-over-year growth, but there were fluctuations. California showed relatively higher weight spikes around 2017, while Ontario and Wisconsin had steadier, flatter trends. Michigan and Ohio displayed more variability, hinting at changing growing conditions or participant turnover.
+
+To give a better overall idea of the world-wide pumpkin weight from 2013 to 2020, we look at the distribution of pumpkin weights across the world.
+```{r}
+#Overall Weight Distribution
+pumpkins$weight_lbs <- as.numeric(pumpkins$weight_lbs)
+ggplot(pumpkins, aes(x = weight_lbs)) +
+  geom_histogram(fill = "#FFA500", color = "black", bins = 25) +
+  labs(
+    title = "Distribution of Pumpkin Weights",
+    x = "Weight (lbs)",
+    y = "Count",
+    caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
+  ) +
+  theme_minimal()
+```
+From this visualization, there's a right-skewed tendency that there are more pumpkins with smaller weights and less pumpkins with bigger weights. This is something we expect to see because it is harder to grow heavy pumpkins. Also we can conclude that the range of the pumpkin weights world-wide is about 1000lbs, which is a quite wide range.
+
+To further look at the weight distribution by countries, we made a set of histograms. 
+```{r}
+#Weight Distribution by Country
+pumpkins1 <- pumpkins %>% filter(!is.na(weight_lbs))
+ggplot(pumpkins1, aes(x = weight_lbs)) + 
+  geom_histogram(fill = "orange", color = "black", bins = 25) + 
+  facet_wrap(~ country) +
+  labs(
+    title = "Distribution of Pumpkin Weights by Country",
+    x = "Weight (lbs)",
+    y = "Count",
+    caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(size = 6), 
+    axis.text.y = element_text(size = 6)
+  )
+```
+Interestingly, it seems the United States participated the most in the competition has it has the most counts of pupmkins in the dataset. Other countries like Canda and Germany also provided a great number of pumpkins. However, for the msot countries in the dataset, they have really minimal number of pumpkins that look insignificant and hard to interpret the trend. 
+
+Then, we decide to take a closer look at the dataset by coding for the statistics for it.
+```{r}
+pumpkins_clean <- pumpkins %>%
+  mutate(weight_lbs = as.numeric(weight_lbs))   # This turns invalid text into NA automatically
+
+# Then continue:
+pumpkin_weight_summary <- pumpkins_clean %>%
+  filter(grepl("^[A-Za-z '\\-]+$", country)) %>%   # keep only real country names
+  group_by(country) %>%
+  summarise(
+    n            = n(),
+    mean_wt      = mean(weight_lbs, na.rm = TRUE),
+    median_wt    = median(weight_lbs, na.rm = TRUE),
+    sd_wt        = sd(weight_lbs, na.rm = TRUE),
+    min_wt       = min(weight_lbs, na.rm = TRUE),
+    max_wt       = max(weight_lbs, na.rm = TRUE),
+    iqr_wt       = IQR(weight_lbs, na.rm = TRUE)
+  ) %>%
+  arrange(country)
+
+print(pumpkin_weight_summary)
+```
+Some findings are surprising, that though the US has the most observations (17070), it doesn't has the most mean nor median. Instead, Belgium is the country in the GPC with highest mean and median weight of pumpkins. Also, the heavist pumpkin is from Belgium with a weight of 999.8lbs. However, it seems that a lot of the heaviest pumpkin in each country has similar weight around 990lbs. This may be an indication that this is the limit for the pumpkin to grow with the current breeding and fertilizing skills. Additionally, Canada has the greatest standard deviation value, which indicates that the pumpkin weights are dispersed away from the mean. 
+
+
+Geographic Distribution: Where the Heaviest Pumpkins Are Grown
+
+To visualize the regional differences more clearly, we mapped the average pumpkin weight across U.S. states.
+```{r}
+library(tidyverse)
+library(maps)
+library(ggthemes)
+
+
+pumpkins_us <- pumpkins %>%
+  filter(country == "United States", !is.na(state_prov), !is.na(weight_lbs)) %>%
+  mutate(state_prov = tolower(state_prov))
+
+
+state_avg_weight <- pumpkins_us %>%
+  group_by(state_prov) %>%
+  summarise(avg_weight = mean(as.numeric(weight_lbs), na.rm = TRUE)) %>%
+  ungroup()
+
+
+us_map <- map_data("state")
+
+us_map_data <- us_map %>%
+  left_join(state_avg_weight, by = c("region" = "state_prov"))
+
+
+ggplot(us_map_data, aes(x = long, y = lat, group = group, fill = avg_weight)) +
+  geom_polygon(color = "white") +
+  coord_fixed(1.3) +
+  scale_fill_gradient(
+    low = "#FFF5E1",  
+    high = "#FF4500",  
+    na.value = "grey90",
+    name = "Avg Weight (lbs)"
+  ) +
+  labs(
+    title = "Average Pumpkin Weight by U.S. State",
+    subtitle = "Based on GPC competition data (2013-2020)",
+    caption = "Data source: TidyTuesday / GPC"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank(),
+    plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.caption = element_text(hjust = 0.5, size = 8),
+    legend.position = "bottom",
+    panel.background = element_rect(fill = "white", color = NA),
+    plot.background = element_rect(fill = "white", color = NA)
+  )
+
+```
+
+
+
+The Midwest, especially states like Ohio and Michigan, consistently produced heavier pumpkins compared to southern or coastal states. This suggests that cooler climates, specific soil types, or stronger pumpkin-growing traditions could favor giant pumpkin cultivation.
+
+Conclusion: Winning Takes Both Genes and Geography
+
+Our analysis shows that growing a giant pumpkin isn't just a matter of luck. Genetics—both seed mothers and pollinator fathers—have a major influence on potential size. Meanwhile, geography—the local environment and growing conditions—also plays a critical role.
+
+In short, the best pumpkin growers combine the right seeds with the right place. As competition intensifies, understanding and optimizing both factors will be key for those hoping to set future records.
+
+Data source: TidyTuesday / GPC
+
+Below is the video of our project which describes our reseach question and generl visualization：
+
+<iframe width="960" height="569" src="https://www.youtube.com/embed/YYoKZSRpj-s?si=FoAPp8tfbGZ_AiMe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQaDAA4HJdKet1zaIPyIZnbBIvM_oPngg_q73ajfBRamhyUJUYOqhmR_KhiG4VdjwoSo6ouxnYuAb57/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

@@ -1,0 +1,131 @@
+---
+title: "Giant Pumpkin"
+---
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(stringr)
+```
+
+```{r}
+# Get the Data
+
+# Read in with tidytuesdayR package 
+# Install from CRAN via: install.packages("tidytuesdayR")
+# This loads the readme and all the datasets for the week of interest
+
+# Either ISO-8601 date or year/week works!
+
+tuesdata <- tidytuesdayR::tt_load('2021-10-19')
+tuesdata <- tidytuesdayR::tt_load(2021, week = 43)
+
+pumpkins <- tuesdata$pumpkins
+
+# Or read in the data manually
+
+pumpkins <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-19/pumpkins.csv')
+```
+
+```{r}
+str(pumpkins)
+```
+```{r}
+pumpkins_clean <- pumpkins %>%
+  mutate(weight_lbs = as.numeric(weight_lbs))   # This turns invalid text into NA automatically
+
+# Then continue:
+pumpkin_weight_summary <- pumpkins_clean %>%
+  filter(grepl("^[A-Za-z '\\-]+$", country)) %>%   # keep only real country names
+  group_by(country) %>%
+  summarise(
+    n            = n(),
+    mean_wt      = mean(weight_lbs, na.rm = TRUE),
+    median_wt    = median(weight_lbs, na.rm = TRUE),
+    sd_wt        = sd(weight_lbs, na.rm = TRUE),
+    min_wt       = min(weight_lbs, na.rm = TRUE),
+    max_wt       = max(weight_lbs, na.rm = TRUE),
+    iqr_wt       = IQR(weight_lbs, na.rm = TRUE)
+  ) %>%
+  arrange(country)
+
+print(pumpkin_weight_summary)
+```
+
+```{r}
+#Overall Weight Distribution
+pumpkins$weight_lbs <- as.numeric(pumpkins$weight_lbs)
+ggplot(pumpkins, aes(x = weight_lbs)) +
+  geom_histogram(fill = "orange", color = "black", bins = 25) +
+  labs(
+    title = "Distribution of Pumpkin Weights",
+    x = "Weight (lbs)",
+    y = "Count",
+    caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
+  ) +
+  theme_minimal()
+```
+
+
+```{r}
+#Weight Distribution by Country
+pumpkins1 <- pumpkins %>% filter(!is.na(weight_lbs))
+ggplot(pumpkins1, aes(x = weight_lbs)) + 
+  geom_histogram(fill = "orange", color = "black", bins = 25) + 
+  facet_wrap(~ country) +
+  labs(
+    title = "Distribution of Pumpkin Weights by Country",
+    x = "Weight (lbs)",
+    y = "Count",
+    caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(size = 6), 
+    axis.text.y = element_text(size = 6)
+  )
+
+```
+
+```{r}
+#Look at Specific Countries
+#United States
+ggplot(pumpkins %>% filter(country == "United States"),
+       aes(x = weight_lbs)) +
+    geom_histogram(binwidth = 25, fill = "orange", color = "black") +
+    labs(title = "Distribution of Pumpkin Weights in the United States",
+    x = "Weight (lbs)",
+    y = "Count",
+    caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+#Look at Specific Countries
+#Canada
+ggplot(pumpkins %>% filter(country == "Canada"),
+       aes(x = weight_lbs)) +
+    geom_histogram(binwidth = 25, fill = "orange", color = "black") +
+    labs(title = "Distribution of Pumpkin Weights in Canada",
+    x = "Weight (lbs)",
+    y = "Count",
+    caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+#Look at Specific Countries
+#Germany
+ggplot(pumpkins %>% filter(country == "Germany"),
+       aes(x = weight_lbs)) +
+    geom_histogram(binwidth = 25, fill = "orange", color = "black") +
+    labs(title = "Distribution of Pumpkin Weights in Germany",
+    x = "Weight (lbs)",
+    y = "Count",
+    caption = "Data Source: The Great Pumpkin Commonwealth (GPC) from 2013 to 2020 from BigPumpkins.com by Leah Zhang"
+  ) +
+  theme_minimal()
+```
+

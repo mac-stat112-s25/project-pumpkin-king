@@ -1,0 +1,42 @@
+---
+title: "Leah Z"
+---
+
+```{r}
+# Get the Data
+
+# Read in with tidytuesdayR package 
+# Install from CRAN via: install.packages("tidytuesdayR")
+# This loads the readme and all the datasets for the week of interest
+
+# Either ISO-8601 date or year/week works!
+
+tuesdata <- tidytuesdayR::tt_load('2021-10-19')
+tuesdata <- tidytuesdayR::tt_load(2021, week = 43)
+
+pumpkins <- tuesdata$pumpkins
+
+# Or read in the data manually
+
+pumpkins <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-19/pumpkins.csv')
+```
+
+```{r}
+nrow(pumpkins)
+head(pumpkins)
+summary(pumpkins)
+```
+
+```{r}
+library(DataExplorer)
+introduce(pumpkins)
+plot_intro(pumpkins)
+plot_missing(pumpkins)
+```
+
+```{r}
+library(arsenal)
+pumpkin_freq <- freqlist(~ variety + state_prov, data = pumpkins)
+summary(pumpkin_freq)
+```
+

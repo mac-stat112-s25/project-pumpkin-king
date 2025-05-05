@@ -1,0 +1,59 @@
+---
+title: "Alena-H"
+format: html
+---
+
+```{r}
+# Get the data
+# Read in with tidytuesdayR package 
+# Install from CRAN via: install.packages("tidytuesdayR")
+# This loads the readme and all the datasets for the week of interest
+
+# Either ISO-8601 date or year/week works!
+
+tuesdata <- tidytuesdayR::tt_load('2021-10-19')
+tuesdata <- tidytuesdayR::tt_load(2021, week = 43)
+
+pumpkins <- tuesdata$pumpkins
+
+# Or read in the data manually
+
+pumpkins <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-10-19/pumpkins.csv')
+
+```
+```{r}
+library(tidyverse)
+# View dimensions of the dataset
+dim(pumpkins)
+
+# Preview the first few rows
+head(pumpkins)
+
+# Check for missing values in each column
+colSums(is.na(pumpkins))
+
+# Check column types and structure
+glimpse(pumpkins)
+
+# Summary statistics for numeric columns
+summary(select(pumpkins, where(is.numeric)))
+
+# Count different competition categories
+table(pumpkins$category)
+
+# Convert weight column to numeric (if needed)
+pumpkins$weight_lbs <- as.numeric(pumpkins$weight_lbs)
+
+# Plot histogram of pumpkin weights
+hist(pumpkins$weight_lbs, 
+     breaks = 30, 
+     main = "Distribution of Pumpkin Weights", 
+     xlab = "Weight (lbs)")
+
+# Top 10 heaviest pumpkins
+pumpkins %>%
+  arrange(desc(weight_lbs)) %>%
+  select(place, weight_lbs, grower_name, city, state_prov) %>%
+  head(10)
+```
+
